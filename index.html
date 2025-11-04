@@ -6,22 +6,25 @@
     <title>好奇心が未来を創る保育園 - ソラストグループ</title>
     
     <link rel="stylesheet" href="css/style.css">
-</head>
+    
+    </head>
 <body>
 
     <header class="site-header">
-        <div class="header-logo">
-            <a href="#">
-                <img src="images/logo1.png" alt="ソラストの保育園 Logo">
-            </a>
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="#">
+                    <img src="images/logo1.png" alt="ソラストの保育園 Logo">
+                </a>
+            </div>
+            <nav class="header-nav" id="sticky-nav">
+                <ul>
+                    <li><a href="#">企業の方へ</a></li>
+                    <li><a href="#">採用情報</a></li>
+                    <li><a href="#" class="btn-contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="header-nav">
-            <ul>
-                <li><a href="#">企業の方へ</a></li>
-                <li><a href="#">採用情報</a></li>
-                <li><a href="#" class="btn-contact">お問い合わせ</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
@@ -37,13 +40,21 @@
         </section>
 
         <section class="intro-gallery container">
-            <div class="gallery-grid">
-                <img src="images/03.jpg" alt="保育園の活動写真 1">
-                <img src="images/04.jpg" alt="保育園の活動写真 2">
-                <img src="images/05.jpg" alt="保育園の活動写真 3">
-                <img src="images/06.jpg" alt="保育園の活動写真 4">
-                <img src="images/07.jpg" alt="保育園の活動写真 5">
-                <img src="images/08.jpg" alt="保育園の活動写真 6">
+            <div class="gallery-scroll-container">
+                <div class="gallery-grid">
+                    <img src="images/03.jpg" alt="保育園の活動写真 1">
+                    <img src="images/04.jpg" alt="保育園の活動写真 2">
+                    <img src="images/05.jpg" alt="保育園の活動写真 3">
+                    <img src="images/06.jpg" alt="保育園の活動写真 4">
+                    <img src="images/07.jpg" alt="保育園の活動写真 5">
+                    <img src="images/08.jpg" alt="保育園の活動写真 6">
+                    <img src="images/03.jpg" alt="保育園の活動写真 1">
+                    <img src="images/04.jpg" alt="保育園の活動写真 2">
+                    <img src="images/05.jpg" alt="保育園の活動写真 3">
+                    <img src="images/06.jpg" alt="保育園の活動写真 4">
+                    <img src="images/07.jpg" alt="保育園の活動写真 5">
+                    <img src="images/08.jpg" alt="保育園の活動写真 6">
+                </div>
             </div>
         </section>
 
@@ -115,43 +126,49 @@
 
         <section class="section news container">
             <h2 class="section-title">お知らせ</h2>
-            <div class="card-grid grid-3">
-                <a href="#" class="card">
-                    <div class="placeholder">お知らせ 画像 1</div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-date">2023.03.17</span>
-                            <span class="card-tag">お知らせ</span>
+            <ul class="news-list">
+                <li class="news-list-item">
+                    <a href="#">
+                        <div class="news-meta">
+                            <time class="news-date">2025年10月06日(月)</time>
+                            <span class="news-tag tag-important">お知らせ</span>
                         </div>
-                        <h4 class="card-title">【ソラスト保育園】〇〇園のホームページを開設しました。</h4>
-                    </div>
-                </a>
-                <a href="#" class="card">
-                    <div class="placeholder">お知らせ 画像 2</div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-date">2023.03.17</span>
-                            <span class="card-tag">お知らせ</span>
+                        <p class="news-title">ソラストなかめのふ保育園☆不適切保育防止研修会のお知らせ</p>
+                    </a>
+                </li>
+                <li class="news-list-item">
+                    <a href="#">
+                        <div class="news-meta">
+                            <time class="news-date">2025年10月01日(水)</time>
+                            <span class="news-tag tag-info">とりくみ</span>
                         </div>
-                        <h4 class="card-title">【ソラスト保育園】〇〇園のホームページを開設しました。</h4>
-                    </div>
-                </a>
-                <a href="#" class="card">
-                    <div class="placeholder">お知らせ 画像 3</div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-date">2023.03.17</span>
-                            <span class="card-tag">お知らせ</span>
+                        <p class="news-title">このえ武蔵境保育園の取り組み～災害・防犯を“教わる”から“自ら考え行動する”学びへ～</p>
+                    </a>
+                </li>
+                <li class="news-list-item">
+                    <a href="#">
+                        <div class="news-meta">
+                            <time class="news-date">2025年09月25日(木)</time>
+                            <span class="news-tag tag-event">イベント</span>
                         </div>
-                        <h4 class="card-title">【ソラスト保育園】〇〇園のホームページを開設しました。</h4>
-                    </div>
-                </a>
-            </div>
-            </section>
+                        <p class="news-title">ソラストなかめのふ保育園☆骨盤矯正＆園見学会のお知らせ</p>
+                    </a>
+                </li>
+                <li class="news-list-item">
+                    <a href="#">
+                        <div class="news-meta">
+                            <time class="news-date">2025年09月25日(木)</time>
+                            <span class="news-tag tag-recruit">お役立ち情報</span>
+                        </div>
+                        <p class="news-title">3月生まれは保育園入園が不利？【誕生月別】保活スケジュールや成功のコツ</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
 
         <section class="section recruit container">
             <h2 class="section-title">採用情報</h2>
-            <div class="card-grid grid-3">
+            <div class="card-grid grid-2">
                 <a href="#" class="card">
                     <img src="images/20.jpg" alt="採用情報 画像 1">
                     <div class="card-content">
@@ -172,17 +189,7 @@
                         <h4 class="card-title">【ソラスト保育園】〇〇園の採用情報を更新しました。</h4>
                     </div>
                 </a>
-                <a href="#" class="card">
-                    <div class="placeholder">採用情報 画像 3</div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-date">2023.03.17</span>
-                            <span class="card-tag">採用情報</span>
-                        </div>
-                        <h4 class="card-title">【ソラスト保育園】〇〇園の採用情報を更新しました。</h4>
-                    </div>
-                </a>
-            </div>
+                </div>
         </section>
 
         <section class="section faq container">
@@ -217,31 +224,7 @@
                 </a>
             </div>
         </section>
-
-        <section class="section contact container">
-            <h2 class="section-title">お問い合わせ</h2>
-            <div class="contact-links">
-                <a href="#" class="contact-link">入園に関するお問い合わせ</a>
-                <a href="#" class="contact-link">採用に関するお問い合わせ</a>
-                <a href="#" class="contact-link">企業の方へ</a>
-                <a href="#" class="contact-link">その他のお問い合わせ</a>
-            </div>
-        </section>
-
-        <section class="related-links">
-            <div class="container">
-                <h3>関連リンク</h3>
-                <div class="links-grid">
-                    <a href="#">保護者様へ</a>
-                    <a href="#">ソラストグループサイト</a>
-                    <a href="#">地域の方へ</a>
-                    <a href="#">（関連リンク B）</a>
-                    <a href="#">（関連リンク C）</a>
-                    <a href="#">（関連リンク D）</a>
-                </div>
-            </div>
-        </section>
-
+        
         <section class="section company container">
             <div class="company-box">
                 <div class="company-info">
@@ -255,11 +238,49 @@
                         TEL 03-3450-2611(代表)
                     </p>
                 </div>
-                <div class="company-social">
-                    <div class="placeholder">FB</div>
-                    <div class="placeholder">Insta</div>
-                    <div class="placeholder">X</div>
+
+                <div class="company-links-social-wrapper">
+                    <div class="related-links">
+                        <h3>関連リンク</h3>
+                        <div class="links-grid-new">
+                            <a href="#" class="link-btn">
+                                新卒採用
+                                <span class="link-arrow"></span>
+                            </a>
+                            <a href="#" class="link-btn">
+                                中途採用
+                                <span class="link-arrow"></span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="company-social">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="X (Twitter)">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="section catchphrase-section container text-center">
+            <p class="footer-catchphrase">好奇心が、未来を創る保育園。</p>
+            <img src="images/14.jpg" alt="Hero image2" class="hero-image2">
+        </section>
+
+        <section class="section contact container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <div class="contact-links">
+                <a href="#" class="contact-link">入園に関するお問い合わせ</a>
+                <a href="#" class="contact-link">採用に関するお問い合わせ</a>
+                <a href="#" class="contact-link">企業の方へ</a>
+                <a href="#" class="contact-link">その他のお問い合わせ</a>
             </div>
         </section>
 
@@ -270,10 +291,7 @@
             <div class="footer-brand">
                 <img src="images/logo2.png" alt="ソラストの保育園 Logo">
             </div>
-            <p class="footer-catchphrase">好奇心が、未来を創る保育園。</p>
             
-            <img src="images/14.jpg" alt="Hero image2">
-
             <nav class="footer-nav">
                 <a href="#">サイトポリシー</a>
                 <a href="#">プライバシーポリシー</a>
