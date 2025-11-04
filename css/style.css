@@ -1,6 +1,4 @@
-/* style.css - ソラスト保育園サイトのスタイル */
-
-/* * CSS Reset (簡易版)
+/* * CSS Reset
  */
 *,
 *::before,
@@ -10,7 +8,7 @@
     padding: 0;
 }
 
-/* * 基本樣式 (Global Styles)
+/* * Global Styles
  */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans CJK JP", "Yu Gothic", sans-serif;
@@ -28,30 +26,14 @@ a {
 img {
     max-width: 100%;
     height: auto;
-    vertical-align: middle; /* 修正圖片對齊 */
+    vertical-align: middle;
 }
 
 ul {
     list-style: none;
 }
 
-/* * 佔位符 (Placeholder)
- */
-.placeholder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #EAEAEA;
-    border: 1px dashed #CCC;
-    color: #888;
-    font-size: 14px;
-    text-align: center;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    /* 預設長寬比 */
-}
-
-/* * 通用組件 (Utility Components)
+/* * Utility Components
  */
 .container {
     max-width: 1100px;
@@ -71,14 +53,12 @@ ul {
     font-weight: bold;
     text-align: center;
     margin-bottom: 40px;
-    /* 圖片中的彩色幾何圖形裝飾省略 */
 }
 
 .btn {
     display: inline-block;
     padding: 12px 40px;
     border: 1px solid #F39800;
-    /* 亮橘色 */
     color: #F39800;
     border-radius: 30px;
     font-weight: bold;
@@ -95,16 +75,15 @@ ul {
     text-align: center;
 }
 
-/* * 頁首 (Header) - 需求 1 更新
+/* * Header
  */
 .site-header {
-    padding: 20px 0; /* 修改 padding */
+    padding: 20px 0;
     background-color: #FFFBF5;
-    position: relative; /* 確保 z-index 生效 */
+    position: relative;
     z-index: 1000;
 }
 
-/* 需求 1: 新增 header-container 來置中 */
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -117,13 +96,11 @@ ul {
 .header-logo {
     flex-shrink: 0;
     padding: 10px 0;
-    /* 需求 1: 添加 transition */
     opacity: 1;
     visibility: visible;
     transition: all 0.3s;
 }
 
-/* 需求 1: Logo 淡出樣式 */
 .header-logo.logo-faded {
     opacity: 0;
     visibility: hidden;
@@ -136,21 +113,23 @@ ul {
 }
 
 .header-nav {
-    /* 需求 1: Sticky Nav */
-    position: sticky;
-    top: 10px; /* 與頂部的距離 */
+    position: relative;
+    top: 0;
     z-index: 1000;
     transition: all 0.3s;
-    border-radius: 20px; /* 預先設定圓角 */
+    border-radius: 20px;
 }
 
-/* 需求 1: Nav 滾動後樣式 */
 .header-nav.nav-scrolled {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
     background-color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px; /* 滾動後增加內距 */
+    padding: 10px 20px;
 }
-
 
 .header-nav ul {
     display: flex;
@@ -169,66 +148,43 @@ ul {
     padding: 5px 15px;
 }
 
-/* * 英雄區 (Hero Section)
- */
 .hero {
     text-align: center;
     padding: 60px 20px;
 }
 
-.hero-image .placeholder {
-    width: 100%;
-    max-width: 450px;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    margin: 0 auto 30px auto;
-    border-radius: 20px;
-    border: none;
-}
-
-/* 修正原檔案 hero-image 圖片未顯示的問題 */
 .hero-image img {
     width: 100%;
-    max-width: 450px;
-    height: 450px; /* 保持 1:1 */
-    object-fit: cover; /* 確保圖片填滿 */
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
     margin: 0 auto 30px auto;
     border-radius: 20px;
-}
-
-
-.hero-brand .placeholder {
-    width: 200px;
-    height: 50px;
-    aspect-ratio: auto;
-    margin: 0 auto 10px auto;
 }
 
 .hero-brand img {
     width: 200px;
-    /* 根據原placeholder的寬度設定 */
     height: 50px;
-    /* 根據原placeholder的高度設定 */
     object-fit: contain;
     margin: 0 auto 10px auto;
-    /* 保持居中和間距 */
 }
 
 .hero-title {
     font-size: 32px;
     font-weight: bold;
     line-height: 1.5;
+    margin: 20px 0;
 }
 
-/* * 簡介相簿 (Intro Gallery) - 需求 2 更新
+/* * Gallery
  */
 .intro-gallery {
     padding: 40px 0;
-    overflow: hidden; /* 隱藏滾動條 */
+    overflow: hidden;
 }
 
 .gallery-scroll-container {
-    overflow: hidden; /* 隱藏超出範圍的圖片 */
+    overflow: hidden;
 }
 
 @keyframes marquee {
@@ -236,40 +192,40 @@ ul {
         transform: translateX(0);
     }
     to {
-        /* 滾動 50% (6 張圖片的寬度) */
         transform: translateX(-50%);
     }
 }
 
 .gallery-grid {
-    /* 6張 * 2 (循環) = 12張。假設寬 300px + 間距 20px */
     width: calc((300px + 20px) * 12);
     display: flex;
     gap: 20px;
-    animation: marquee 30s linear infinite; /* 滾動動畫 */
+    animation: marquee 30s linear infinite;
+    min-height: 260px;
+    align-items: center;
 }
 
 .gallery-grid:hover {
-    animation-play-state: paused; /* 滑鼠懸停時暫停 */
+    animation-play-state: paused;
 }
 
 .gallery-grid img {
-    width: 300px; /* 固定寬度 */
+    width: 300px;
     object-fit: cover;
-    border-radius: 10px; /* 圓角 */
+    border-radius: 10px;
 }
 
-/* 交錯高度 */
 .gallery-grid img:nth-child(odd) {
     height: 220px;
+    align-self: flex-start;
 }
 .gallery-grid img:nth-child(even) {
     height: 180px;
-    margin-top: 40px; /* 偶數圖片向下偏移 */
+    align-self: flex-end;
 }
 
 
-/* * 理念 (Philosophy) - 需求 3 更新
+/* * Philosophy
  */
 .philosophy-grid {
     display: flex;
@@ -278,70 +234,63 @@ ul {
     text-align: center;
 }
 
-/* 需求 3: philosophy-item 樣式 */
 .philosophy-item {
     flex: 1;
     background-color: #fff;
-    border: 1px solid #F39800; /* 超幼橙色邊框 */
+    border: 1px solid #F39800;
     border-radius: 10px;
-    padding: 20px;
+    padding: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease-out;
+    overflow: hidden;
 }
 
-/* 需求 3: Hover 浮起效果 */
 .philosophy-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .philosophy-item img {
-    width: 120px;
+    width: 100%;
     height: 120px;
     object-fit: cover;
-    aspect-ratio: 1 / 1;
-    margin: 0 auto 20px auto;
-    border-radius: 10px;
+    aspect-ratio: auto;
+    margin: 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .philosophy-item h3 {
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 10px;
+    padding: 20px 20px 0 20px;
 }
 
 .philosophy-item p {
     font-size: 15px;
     text-align: left;
+    padding: 0 20px 20px 20px;
 }
 
 .philosophy-button {
     margin-top: 40px;
 }
 
-/* * 卡片網格 (Card Grid - 用於學校、新聞等)
+/* * Card Grid
  */
 .card-grid {
     display: grid;
     gap: 25px;
 }
-
-/* 4 欄式 (用於學校列表) */
 .grid-4 {
     grid-template-columns: repeat(4, 1fr);
 }
-
-/* 3 欄式 (用於新聞、FAQ) */
 .grid-3 {
     grid-template-columns: repeat(3, 1fr);
 }
-
-/* 需求 5: 新增 2 欄式 (用於採用情報) */
 .grid-2 {
     grid-template-columns: repeat(2, 1fr);
 }
-
-
 .card {
     display: block;
     background-color: #fff;
@@ -350,36 +299,22 @@ ul {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.3s;
 }
-
 .card:hover {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
-
-/* 修正 card 圖片樣式 */
 .card img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
-
-.card .placeholder {
-    aspect-ratio: 16 / 9;
-    border: none;
-    border-bottom: 1px dashed #ccc;
-    border-radius: 0;
-}
-
 .card-content {
     padding: 20px;
 }
-
 .card h4 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
 }
-
-/* 卡片 - metadata */
 .card-meta {
     display: flex;
     align-items: center;
@@ -387,7 +322,6 @@ ul {
     margin-bottom: 10px;
     font-size: 14px;
 }
-
 .card-tag {
     display: inline-block;
     background-color: #F39800;
@@ -397,24 +331,19 @@ ul {
     font-size: 12px;
     font-weight: bold;
 }
-
 .card-date {
     color: #777;
 }
-
 .card-title {
     font-size: 16px;
     font-weight: bold;
     line-height: 1.6;
 }
-
-/* 學校列表樣式 */
 .school-tags {
     display: flex;
     gap: 8px;
     margin-bottom: 10px;
 }
-
 .school-tag {
     background-color: #EFEFEF;
     color: #555;
@@ -422,17 +351,15 @@ ul {
     border-radius: 4px;
     font-size: 12px;
 }
-
 .school-description {
     font-size: 14px;
     color: #555;
 }
-
 .section-button {
     margin-top: 40px;
 }
 
-/* * お知らせ (News) - 需求 4 更新
+/* * News
  */
 .news-list {
     max-width: 900px;
@@ -486,14 +413,12 @@ ul {
     color: #009E44;
     border-color: #009E44;
 }
-
 .news-title {
     flex-grow: 1;
     font-weight: bold;
     padding-right: 20px;
 }
 .news-list-item a::after {
-    /* 箭頭 */
     content: '';
     display: block;
     width: 8px;
@@ -504,26 +429,27 @@ ul {
     flex-shrink: 0;
 }
 
-
-/* * 需求 8: Catchphrase 區塊
+/* * Catchphrase
  */
 .catchphrase-section {
-    padding-top: 0; /* 移除上方 padding */
+    padding-top: 0;
 }
 .hero-image2 {
     border-radius: 10px;
     margin-top: 30px;
-    max-width: 800px; /* 限制圖片寬度 */
+    max-width: 800px;
+    width: 100%;
 }
 
-
-/* * 諮詢 (Contact)
+/* * Contact
  */
-.contact-links {
-    max-width: 600px;
+.contact-links-grid {
+    max-width: 800px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
-
 .contact-link {
     display: block;
     background-color: #fff;
@@ -533,35 +459,29 @@ ul {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 15px;
     transition: all 0.3s;
 }
-
 .contact-link:hover {
     border-color: #F39800;
     color: #F39800;
 }
 
-/* * 相關連結 (Related Links) - 需求 9 更新
+/* * Related Links
  */
 .related-links {
-    /* 移除原有區塊樣式 */
     margin-bottom: 20px;
 }
-
 .related-links h3 {
-    text-align: right; /* 靠右 */
+    text-align: right;
     font-size: 18px;
     margin-bottom: 15px;
 }
-
 .links-grid-new {
     display: flex;
-    flex-direction: column; /* 上下排列 */
+    flex-direction: column;
     gap: 10px;
-    align-items: flex-end; /* 靠右 */
+    align-items: flex-end;
 }
-
 .link-btn {
     display: flex;
     justify-content: space-between;
@@ -580,7 +500,6 @@ ul {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     color: #F39800;
 }
-
 .link-arrow {
     display: flex;
     justify-content: center;
@@ -589,86 +508,89 @@ ul {
     height: 30px;
     border-radius: 50%;
     background-color: #F39800;
-    /* 內嵌 SVG 箭頭 */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='16px' height='16px'%3E%3Cpath d='M6 18l1.41 1.41L18.83 7.99 13 7.99l0-2.01l8 0l0 8l-2 0l0-5.83L7.41 19.41L6 18z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='16px' height='16px'%3E%3Cpath d='M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z'/%3E%3C/svg%3E");
     background-size: 16px;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 
-/* * 公司概要 (Company) - 需求 6, 7, 9 更新
+/* * Company
  */
 .company-box {
     background-color: #FEF4E3;
-    /* 淺橘色 */
     border-radius: 20px;
-    padding: 40px;
+    padding: 0 40px 0 0;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* 改為 flex-start */
+    align-items: stretch;
+    overflow: hidden;
 }
 
-.company-info .logo .placeholder {
-    width: 150px;
-    height: 30px;
-    aspect-ratio: auto;
-    margin-bottom: 15px;
+.company-info {
+    display: flex;
+    flex: 1;
 }
-
-/* 需求 7: Logo 尺寸同 header */
-.company-info .logo img {
-    width: 400px;
-    height: 100px;
-    object-fit: contain;
-    margin-bottom: 15px;
+.company-info .logo {
+    display: none;
 }
-
+.company-image {
+    width: 40%;
+    flex-shrink: 0;
+}
+.company-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px 0 0 20px;
+}
+.company-text {
+    padding: 40px;
+}
 .company-info h4 {
     font-size: 18px;
     font-weight: bold;
 }
-
 .company-info p {
     font-size: 14px;
     line-height: 1.8;
 }
-
-/* 需求 9: 新增 wrapper */
 .company-links-social-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* 靠右 */
+    align-items: flex-end;
     flex-shrink: 0;
+    padding: 40px 0 40px 40px;
 }
-
 .company-social {
     display: flex;
     gap: 15px;
 }
-
-/* 需求 6: 實裝 Social icon 樣式 */
 .social-icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background-color: #F39800;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-size: 18px;
     transition: all 0.3s;
+    background-size: 55%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .social-icon:hover {
     background-color: #333;
 }
-.company-social .placeholder {
-   display: none; /* 隱藏 placeholder */
+.social-icon-fb {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3l-.5 3h-2.5v6.8c4.56-.93 8-4.96 8-9.8z'/%3E%3C/svg%3E");
+}
+.social-icon-ig {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8c1.99 0 3.6-1.61 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E");
+}
+.social-icon-x {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E");
 }
 
-/* * 頁尾 (Footer)
+
+/* * Footer
  */
 .site-footer {
     padding: 60px 0;
@@ -676,30 +598,17 @@ ul {
     background-color: #fff;
     margin-top: 80px;
 }
-
-.footer-brand .placeholder {
-    width: 200px;
-    height: 50px;
-    aspect-ratio: auto;
-    margin: 0 auto 10px auto;
-}
-
 .footer-brand img {
     width: 200px;
-    /* 根據原placeholder的寬度設定 */
     height: 50px;
-    /* 根據原placeholder的高度設定 */
     object-fit: contain;
     margin: 0 auto 10px auto;
 }
-
-/* 需求 8: 標語樣式保留，但 HTML 位置已移動 */
 .footer-catchphrase {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 30px;
 }
-
 .footer-nav {
     display: flex;
     justify-content: center;
@@ -707,41 +616,38 @@ ul {
     margin-top: 30px;
     font-size: 13px;
 }
-
 .copyright {
     margin-top: 30px;
     font-size: 12px;
     color: #888;
 }
 
-/* * 響應式設計 (RWD)
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* * RWD
  */
+
+/* Mobile Gallery (900px) */
 @media (max-width: 900px) {
     .gallery-grid {
-        /* 停止動畫，改為滾動 */
-        animation: none;
-        width: auto;
-        overflow-x: auto;
-        padding-bottom: 20px; /* 預留滾動條空間 */
+        width: calc((250px + 20px) * 12);
     }
-
     .gallery-grid img {
-        width: 250px; /* 縮小圖片 */
+        width: 250px;
     }
 
-    .grid-4 {
+    .grid-4, .grid-3, .grid-2 {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    /* 需求 5: RWD */
-    .grid-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
     .news-list-item a {
         flex-direction: column;
         align-items: flex-start;
@@ -751,18 +657,36 @@ ul {
         width: 100%;
     }
     .news-list-item a::after {
-        align-self: flex-end; /* 箭頭保持在右側 */
+        align-self: flex-end;
         margin-top: -15px;
     }
-
+    .contact-links-grid {
+        grid-template-columns: 1fr;
+    }
     .company-box {
         flex-direction: column;
-        align-items: center; /* 居中 */
+        align-items: center;
         gap: 30px;
         text-align: center;
+        padding: 0;
+    }
+    .company-info {
+        flex-direction: column;
+        width: 100%;
+    }
+    .company-image {
+        width: 100%;
+        height: 200px;
+    }
+    .company-image img {
+        border-radius: 20px 20px 0 0;
+    }
+    .company-text {
+        padding: 30px;
     }
     .company-links-social-wrapper {
-        align-items: center; /* 居中 */
+        align-items: center;
+        padding: 0 0 30px 0;
     }
     .related-links h3 {
         text-align: center;
@@ -770,14 +694,13 @@ ul {
     .links-grid-new {
         align-items: center;
     }
-
 }
 
+/* Mobile Gallery (600px) */
 @media (max-width: 600px) {
     body {
         font-size: 15px;
     }
-
     .section {
         padding-top: 50px;
         padding-bottom: 50px;
@@ -788,31 +711,58 @@ ul {
         gap: 15px;
     }
     
-    /* 需求 1: RWD (Nav sticky) */
     .header-nav {
         position: sticky;
-        top: 0; /* 手機版貼齊頂部 */
+        top: 0;
         width: 100%;
-        padding: 0; /* 移除預設 padding */
+        padding: 0;
     }
     .header-nav.nav-scrolled {
-        /* 確保 sticky 時有 padding */
-        padding: 10px 20px;
-    }
-    .header-nav ul {
-        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: none;
         width: 100%;
+        border-radius: 0 0 20px 20px;
+        padding: 10px 0;
     }
-
 
     .header-logo img {
         width: 200px;
         height: auto;
     }
+    
+    .company-info .logo img {
+        width: 200px;
+        height: auto;
+        margin: 0 auto 15px auto;
+    }
 
     .header-nav ul {
-        gap: 10px;
+        gap: 10px 2%;
         font-size: 13px;
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    .header-nav ul li {
+        flex-basis: 31%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .header-nav ul li a {
+        padding: 5px 0;
+        width: 100%;
+    }
+
+    .header-nav ul li .btn-contact {
+        padding: 5px 15px;
+        font-size: 13px;
+        width: auto;
     }
 
     .hero-title {
@@ -820,7 +770,7 @@ ul {
     }
     
     .hero-image img {
-        height: auto; /* RWD 時取消 1:1 */
+        height: auto;
         aspect-ratio: 1/1;
     }
 
@@ -828,36 +778,36 @@ ul {
         font-size: 24px;
     }
 
-    .gallery-grid,
     .grid-4,
     .grid-3,
-    .grid-2 { /* 需求 5: RWD */
+    .grid-2 {
         grid-template-columns: 1fr;
-        /* 手機版全部改為單欄 */
     }
 
+    /* mobile gallery */
+    .gallery-grid {
+        width: calc((200px + 20px) * 12);
+        min-height: 190px;
+    }
+    .gallery-grid img {
+        width: 200px;
+    }
+    .gallery-grid img:nth-child(odd) {
+        height: 150px;
+    }
+    .gallery-grid img:nth-child(even) {
+        height: 120px;
+    }
     .philosophy-grid {
         flex-direction: column;
         gap: 40px;
     }
-
     .links-grid {
         grid-template-columns: 1fr;
     }
-
-    .company-box {
-        flex-direction: column;
-        gap: 30px;
-        text-align: center;
+    .contact-links-grid {
+        grid-template-columns: 1fr;
     }
-
-    /* 需求 7: RWD Logo */
-    .company-info .logo img {
-        width: 200px;
-        height: auto;
-        margin: 0 auto 15px auto;
-    }
-
     .footer-nav {
         flex-direction: column;
         gap: 10px;
